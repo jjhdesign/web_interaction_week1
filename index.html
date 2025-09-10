@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .caption {
+        font-size: 16px;
+        color: rgb(70, 70, 70);
+        margin-top: -2px;
+        font-weight: 400;
+      }
+      .caption2 {
+        font-size: 14px;
+        color: rgb(56, 86, 255);
+        margin-top: 24px;
+        font-weight: 500;
+      }
+      .outbox {
+        margin: auto;
+        margin-top: 3%;
+        background-color: rgb(255, 255, 255);
+        padding: 12px 28px 28px 28px;
+        width: fit-content;
+        border-radius: 24px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
+      }
+      .box {
+        font-size: 24px;
+        padding: 8px 24px 8px 24px;
+        background-color: rgb(211, 211, 211);
+        border: none;
+        width: 380px;
+        height: 36px;
+        border-radius: 8px;
+        margin-bottom: 12px;
+      }
+      .result {
+        font-size: 52px;
+      }
+
+      .buttonbox {
+        text-align: right;
+      }
+      .button {
+        font-size: 16px;
+        font-weight: 450;
+        padding: 14px 24px 14px 24px;
+        border: none;
+        background-color: rgb(75, 102, 255);
+        margin-top: 48px;
+        width: 100%;
+        border-radius: 12px;
+        color: white;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.19);
+      }
+      .name {
+        font-size: 20px;
+        font-weight: 450;
+        margin-top: -10px;
+        margin-bottom: 16px;
+      }
+    </style>
+  </head>
+  <body style="background-color: rgb(211, 211, 211)">
+    <div class="outbox">
+      <p style="font-size: 32px; font-weight: 400">1RM 계산기</p>
+      <p class="caption" style="margin-top: -24px; margin-bottom: 48px">
+        운동 중량과 최대 가능 반복 횟수를 입력하여, <br />1회 수행 가능한 최대
+        중량(1RM)을 계산해보세요
+      </p>
+      <p class="caption2">중량</p>
+      <p class="name">3대운동 중 하나의 <br />평소 수행 중량을 입력하세요</p>
+      <input id="input1" type="text" class="box" />
+
+      <br />
+      <p class="caption2">반복횟수</p>
+      <p class="name">
+        해당 중량으로 수행 가능한 <br />최대 반복 횟수를 입력하세요
+      </p>
+      <input id="input2" type="text" class="box" />
+      <br />
+      <div class="buttonbox">
+        <button onclick="calculate()" class="button">계산하기</button>
+      </div>
+      <br />
+      <p class="caption2" style="margin-top: 12px">1RM</p>
+      <p class="name">1회 수행 최대 중량</p>
+
+      <span id="result" class="result"> </span>
+    </div>
+
+    <script>
+      function calculate() {
+        var a = document.getElementById("input1").value;
+        var b = document.getElementById("input2").value;
+        var resultValue = a * (1 + b / 30) + "kg";
+        var resultBox = document.getElementById("result");
+        resultBox.innerText = resultValue;
+      }
+    </script>
+  </body>
+</html>
